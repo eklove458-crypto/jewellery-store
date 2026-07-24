@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Alka Jewellers | Timeless Elegance</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="alka-style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        <span>ALKA</span>
+        <small>JEWELLERS</small>
+    </div>
+
+
+    <nav class="nav-links">
+
+        <a href="#home">Home</a>
+
+        <a href="#categories">Categories</a>
+
+        <a href="#products">Collections</a>
+
+        <a href="#rashi">Rashi</a>
+
+        <a href="#reviews">Reviews</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <button onclick="openSearch()" class="nav-icon">
+            🔍
+        </button>
+
+
+        <button onclick="openWishlist()" class="nav-icon">
+
+            ♡
+
+            <span id="wishlistCount">
+                0
+            </span>
+
+        </button>
+
+
+        <button onclick="openCart()" class="nav-icon">
+
+            🛒
+
+            <span id="cartCount">
+                0
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- ================= SEARCH OVERLAY ================= -->
+
+<div id="searchOverlay" class="search-overlay">
+
+    <div class="search-container">
+
+        <button onclick="closeSearch()" class="close-search">
+            ×
+        </button>
+
+
+        <h2>
+            Search Jewellery
+        </h2>
+
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search rings, necklaces, earrings..."
+            onkeyup="searchProducts()"
+        >
+
+
+        <div id="searchResults">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-label">
+            THE ART OF TIMELESS BEAUTY
+        </p>
+
+
+        <h1>
+            Jewellery That
+            <br>
+            Tells Your Story
+        </h1>
+
+
+        <p class="hero-text">
+
+            Discover exquisite jewellery crafted
+            to celebrate your most precious moments.
+
+        </p>
+
+
+        <a href="#products" class="primary-btn">
+
+            Explore Collection
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= CATEGORY SECTION ================= -->
+
+<section id="categories" class="categories">
+
+    <div class="section-title">
+
+        <p>
+            SHOP YOUR STYLE
+        </p>
+
+        <h2>
+            Explore Our Collections
+        </h2>
+
+    </div>
+
+
+    <div class="category-grid">
+
+
+        <div class="category-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80"
+                alt="Rings"
+            >
+
+            <div class="category-overlay">
+
+                <h3>
+                    Rings
+                </h3>
+
+                <button onclick="filterCategory('Rings')">
+                    Shop Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="category-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=700&q=80"
+                alt="Necklaces"
+            >
+
+            <div class="category-overlay">
+
+                <h3>
+                    Necklaces
+                </h3>
+
+                <button onclick="filterCategory('Necklaces')">
+                    Shop Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="category-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=700&q=80"
+                alt="Earrings"
+            >
+
+            <div class="category-overlay">
+
+                <h3>
+                    Earrings
+                </h3>
+
+                <button onclick="filterCategory('Earrings')">
+                    Shop Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="category-card">
+
+            <img
+                src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=80"
+                alt="Bracelets"
+            >
+
+            <div class="category-overlay">
+
+                <h3>
+                    Bracelets
+                </h3>
+
+                <button onclick="filterCategory('Bracelets')">
+                    Shop Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= PRODUCTS ================= -->
+
+<section id="products" class="products-section">
+
+
+    <div class="section-title">
+
+        <p>
+            OUR FAVOURITES
+        </p>
+
+        <h2>
+            Featured Jewellery
+        </h2>
+
+    </div>
+
+
+    <div id="productGrid" class="product-grid">
+
+        <!-- Products will come from products.js -->
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ================= RASHI SECTION ================= -->
+
+<section id="rashi" class="rashi-section">
+
+
+    <div class="section-title">
+
+        <p>
+            FIND YOUR GEMSTONE
+        </p>
+
+        <h2>
+            Choose By Your Rashi
+        </h2>
+
+        <span>
+            Discover the gemstone that complements your zodiac sign.
+        </span>
+
+    </div>
+
+
+
+    <div class="rashi-grid">
+
+
+        <button onclick="selectRashi('Aries')">
+
+            <strong>
+                ♈
+            </strong>
+
+            <span>
+                Aries
+            </span>
+
+            <small>
+                Ruby
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Taurus')">
+
+            <strong>
+                ♉
+            </strong>
+
+            <span>
+                Taurus
+            </span>
+
+            <small>
+                Emerald
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Gemini')">
+
+            <strong>
+                ♊
+            </strong>
+
+            <span>
+                Gemini
+            </span>
+
+            <small>
+                Agate
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Cancer')">
+
+            <strong>
+                ♋
+            </strong>
+
+            <span>
+                Cancer
+            </span>
+
+            <small>
+                Pearl
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Leo')">
+
+            <strong>
+                ♌
+            </strong>
+
+            <span>
+                Leo
+            </span>
+
+            <small>
+                Ruby
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Virgo')">
+
+            <strong>
+                ♍
+            </strong>
+
+            <span>
+                Virgo
+            </span>
+
+            <small>
+                Sapphire
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Libra')">
+
+            <strong>
+                ♎
+            </strong>
+
+            <span>
+                Libra
+            </span>
+
+            <small>
+                Opal
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Scorpio')">
+
+            <strong>
+                ♏
+            </strong>
+
+            <span>
+                Scorpio
+            </span>
+
+            <small>
+                Topaz
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Sagittarius')">
+
+            <strong>
+                ♐
+            </strong>
+
+            <span>
+                Sagittarius
+            </span>
+
+            <small>
+                Turquoise
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Capricorn')">
+
+            <strong>
+                ♑
+            </strong>
+
+            <span>
+                Capricorn
+            </span>
+
+            <small>
+                Garnet
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Aquarius')">
+
+            <strong>
+                ♒
+            </strong>
+
+            <span>
+                Aquarius
+            </span>
+
+            <small>
+                Amethyst
+            </small>
+
+        </button>
+
+
+
+        <button onclick="selectRashi('Pisces')">
+
+            <strong>
+                ♓
+            </strong>
+
+            <span>
+                Pisces
+            </span>
+
+            <small>
+                Aquamarine
+            </small>
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= REVIEWS ================= -->
+
+<section id="reviews" class="reviews-section">
+
+
+    <div class="section-title">
+
+        <p>
+            CUSTOMER LOVE
+        </p>
+
+        <h2>
+            What Our Customers Say
+        </h2>
+
+    </div>
+
+
+
+    <div class="review-grid">
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+
+                "Absolutely beautiful jewellery.
+                The finishing and quality are amazing."
+
+            </p>
+
+            <h4>
+                Priya Sharma
+            </h4>
+
+            <small>
+                Verified Customer
+            </small>
+
+        </div>
+
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+
+                "The necklace I ordered was elegant
+                and looked even more beautiful in person."
+
+            </p>
+
+            <h4>
+                Ananya Gupta
+            </h4>
+
+            <small>
+                Verified Customer
+            </small>
+
+        </div>
+
+
+
+        <div class="review-card">
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+            <p>
+
+                "Amazing designs and wonderful
+                shopping experience. Highly recommended."
+
+            </p>
+
+            <h4>
+                Neha Verma
+            </h4>
+
+            <small>
+                Verified Customer
+            </small>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+
+    <div class="footer-content">
+
+
+        <div class="footer-brand">
+
+            <h2>
+                ALKA
+            </h2>
+
+            <p>
+                JEWELLERS
+            </p>
+
+            <span>
+                Timeless jewellery crafted for
+                your timeless moments.
+            </span>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Quick Links
+            </h3>
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#products">
+                Collections
+            </a>
+
+            <a href="#rashi">
+                Rashi
+            </a>
+
+        </div>
+
+
+
+        <div>
+
+            <h3>
+                Contact
+            </h3>
+
+            <p>
+                📞 +91 98765 43210
+            </p>
+
+            <p>
+                ✉️ hello@alkajewellers.com
+            </p>
+
+            <p>
+                📍 India
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Alka Jewellers. All Rights Reserved.
+        </p>
+
+    </div>
+
+
+</footer>
+
+
+
+<!-- ================= JAVASCRIPT FILES ================= -->
+
+<script src="products.js"></script>
+
+<script src="cart.js"></script>
+
+<script src="wishlist.js"></script>
+
+<script src="alka-script.js"></script>
+
+
+</body>
+
+</html>
